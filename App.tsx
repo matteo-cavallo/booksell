@@ -1,17 +1,21 @@
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 import  Icon  from 'react-native-vector-icons/Ionicons'
+import { TabController } from './src/screens/root/tabController';
 
 
 export default function App() {
+
+  const colorScheme = useColorScheme()
+
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <TouchableOpacity onPress={() => alert("Ciao")}>
-        <Icon name="person-circle-outline" size={32} color="green"/>
-      </TouchableOpacity>
-    </View>
+    <NavigationContainer theme={colorScheme === "light" ? DefaultTheme : DarkTheme}>      
+      <TabController />
+    </NavigationContainer>
   );
 }
 
