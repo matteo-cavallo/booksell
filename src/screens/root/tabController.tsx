@@ -6,12 +6,11 @@ import { HomeScreen } from './home/HomeScreen'
 
 export const TabController = () => {
 
-
     const Tabs = createBottomTabNavigator()
 
     return (
         <Tabs.Navigator>
-            <Tabs.Screen name="Login" component={HomeScreen} options={{headerShown: false}} />
+            <Tabs.Screen name="Login" component={HomeScreen} />
         </Tabs.Navigator>
     )
 }
