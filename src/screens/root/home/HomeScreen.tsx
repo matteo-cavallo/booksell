@@ -1,12 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react'
-import { useContext } from 'react';
-import { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native'
-import { TextProps } from 'react-native-elements';
-import { color } from 'react-native-elements/dist/helpers';
+import { View, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
-import { baseProps } from 'react-native-gesture-handler/lib/typescript/handlers/gestureHandlers';
 import { ButtonComponent } from '../../../shared/button.component';
 import { TextComponent } from '../../../shared/text.component';
 import { TextFieldComponent } from '../../../shared/textField.component';
@@ -49,8 +44,8 @@ export const HomeScreen = () => {
 
                 <ButtonComponent title="Ciao" onPress={() => alert("Ciao")}/>
                 <ButtonComponent title="Ciao" onPress={() => alert("Ciao")} disabled style={{marginTop: 8}}/>
-                <TextFieldComponent placeholder="Ciao" style={{marginTop: 8}}/>
-                <TextFieldComponent placeholder="Ciao" value="Ciao inserito" style={{marginTop: 8}}/>
+                <TextFieldComponent iconName="home"  placeholder="Ciao" containerStyle={{marginTop:8}}/>
+                <TextFieldComponent placeholder="Ciao" value="Ciao inserito" containerStyle={{marginTop:8}}/>
                     </View>
             </ScrollView>
     )
