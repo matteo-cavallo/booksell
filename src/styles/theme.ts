@@ -13,6 +13,9 @@ export interface Theme {
         fillSecondary: string;
         fillTertiary: string;
         background: string;
+    },
+    shapes:{
+        borderRadius:number
     }
 }
 
@@ -28,6 +31,9 @@ export const LightTheme: Theme = {
         fillSecondary: "rgba(120, 120, 128, 0.16)",
         fillTertiary: "rgba(118, 118, 128, 0.12)",
         background: "#FFFFFF"
+    },
+    shapes:{
+        borderRadius:16
     }
 }
 
@@ -41,7 +47,7 @@ export const DarkTheme: Theme = {
         tertiary: "rgba(235, 235, 245, 0.3)",
         fillTertiary: "#3A3A3C",
         background: "#000000"
-    }
+    },
 }
 
 
