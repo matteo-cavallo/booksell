@@ -4,7 +4,6 @@ import { TextInput } from "react-native-gesture-handler";
 import React from 'react';
 import { StyleSheet, Text } from "react-native";
 import { useContext } from "react";
-//import { ThemeContext } from "../../App";
 import { FontStyle } from "../styles/theme";
 import { useCustomTheme } from "../styles/themeHook";
 import { Icon } from "react-native-elements";
@@ -23,7 +22,6 @@ export const TextFieldComponent: FC<CustomTextInputProps> = (props) => {
 
     const customStyle = StyleSheet.create({
         container: {
-            width: '100%',
             height: 50, 
             backgroundColor: theme.colors.fillTertiary,
             borderRadius: 16,
@@ -67,6 +65,7 @@ export const TextFieldComponent: FC<CustomTextInputProps> = (props) => {
             return <Text style={[FontStyle.caption, customStyle.footer]}>{props.footer}</Text>
         }
     }
+
 
     return (
         <View style={{marginBottom: 16}}>
