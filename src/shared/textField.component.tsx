@@ -1,29 +1,80 @@
-import { FC } from "react";
-import { TextInputProps } from "react-native";
+import { FC, useState } from "react";
+import { TextInputProps, TouchableOpacity, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import React from 'react';
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { useContext } from "react";
-import { ThemeContext } from "../../App";
+//import { ThemeContext } from "../../App";
 import { FontStyle } from "../styles/theme";
+import { useCustomTheme } from "../styles/themeHook";
+import { Icon } from "react-native-elements";
 
-export const TextFieldComponent: FC<TextInputProps> = (props) => {
+interface CustomTextInputProps extends TextInputProps {
+    deleteButtonEnabled?: boolean
+    footer?: string;
+}
 
-    const {colors} = useContext(ThemeContext)
+export const TextFieldComponent: FC<CustomTextInputProps> = (props) => {
+
+    // Props
+    const [text, setText] = useState(props.value)
+
+    const {theme} = useCustomTheme()
 
     const customStyle = StyleSheet.create({
         container: {
             width: '100%',
             height: 50, 
-            backgroundColor: colors.fillTertiary,
+            backgroundColor: theme.colors.fillTertiary,
             borderRadius: 16,
+            alignItems: "center",
+            flexDirection: "row",
             paddingHorizontal: 16,
-            fontSize: FontStyle.body.fontSize,
-            color: colors.primary
+        },
+        text: {
+            color: theme.colors.primary,
+            fontSize: 17,
+            flex: 1,
+        },
+        icon: {
+            padding: 8,
+        },
+        footer: {
+            color: theme.colors.secondary,
+            marginTop: 8,
+            marginHorizontal: 16
         }
-    })
+    })    
+
+    const handleDelete = () => {
+        if (props.onChangeText){
+            props.onChangeText("")
+        }
+    }
+
+    const deleteButton = () => {
+        if (props.deleteButtonEnabled) {
+            return (
+                <TouchableOpacity onPress={ () => handleDelete()}>
+                    <Icon name="closecircle" type="antdesign" size={17} color={theme.colors.secondary} style={customStyle.icon}/>
+                </TouchableOpacity>
+            )
+        }
+    }
+
+    const footer = () => {
+        if (props.footer){
+            return <Text style={[FontStyle.caption, customStyle.footer]}>{props.footer}</Text>
+        }
+    }
 
     return (
-        <TextInput {...props} style={[props.style, customStyle.container]}/>
+        <View style={{marginBottom: 16}}>
+            <View style={customStyle.container}>
+                <TextInput style={[customStyle.text]} {...props} placeholderTextColor={theme.colors.secondary}/>
+                {deleteButton()}
+            </View>
+            {footer()}
+        </View>
     )
 }

@@ -12,6 +12,7 @@ export interface Theme {
         fillPrimary: string;
         fillSecondary: string;
         fillTertiary: string;
+        background: string;
     }
 }
 
@@ -25,7 +26,8 @@ export const LightTheme: Theme = {
         tertiary: "rgba(60, 60, 67, 0.3)",
         fillPrimary: "rgba(120, 120, 128, 0.2)",
         fillSecondary: "rgba(120, 120, 128, 0.16)",
-        fillTertiary: "rgba(118, 118, 128, 0.12)"
+        fillTertiary: "rgba(118, 118, 128, 0.12)",
+        background: "#FFFFFF"
     }
 }
 
@@ -37,7 +39,8 @@ export const DarkTheme: Theme = {
         primary: "#FFFFFF",
         secondary: "rgba(235, 235, 245, 0.6)",
         tertiary: "rgba(235, 235, 245, 0.3)",
-        fillTertiary: "#3A3A3C"
+        fillTertiary: "#3A3A3C",
+        background: "#000000"
     }
 }
 

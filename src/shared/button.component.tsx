@@ -3,13 +3,14 @@ import { Touchable, TouchableOpacity, Text, StyleSheet } from "react-native"
 import { ButtonProps } from "react-native-elements"
 import React from "react"
 import { useContext } from "react"
-import { ThemeContext } from "../../App"
+//import { ThemeContext } from "../../App"
 import { FontStyle } from "../styles/theme"
+import { useCustomTheme } from "../styles/themeHook"
 
 
 export const ButtonComponent: FC<ButtonProps> = (props) => {
 
-    const {colors} = useContext(ThemeContext)
+    const {theme} = useCustomTheme()
 
     const customStyle = StyleSheet.create({
         button: {
@@ -18,7 +19,7 @@ export const ButtonComponent: FC<ButtonProps> = (props) => {
             height: 50,
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: !props.disabled ? colors.accent : colors.accentDisabled
+            backgroundColor: theme.colors.accent
         },
         text: {
             color: "#FFFFFF"

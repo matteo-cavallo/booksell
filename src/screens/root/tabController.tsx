@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 import { useColorScheme } from 'react-native'
 import { StyleSheet, Text, View } from 'react-native'
-import { HomeScreen } from './home/HomeScreen'
+import { HomeNavigator } from './home/HomeNavigator'
 
 export const TabController = () => {
 
@@ -10,7 +10,7 @@ export const TabController = () => {
 
     return (
         <Tabs.Navigator>
-            <Tabs.Screen name="Login" component={HomeScreen} />
+            <Tabs.Screen name="Home_Tab" component={HomeNavigator} options={{headerShown: false}}/>
         </Tabs.Navigator>
     )
 }
