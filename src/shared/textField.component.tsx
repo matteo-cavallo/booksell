@@ -15,9 +15,6 @@ interface CustomTextInputProps extends TextInputProps {
 
 export const TextFieldComponent: FC<CustomTextInputProps> = (props) => {
 
-    // Props
-    const [text, setText] = useState(props.value)
-
     const {theme} = useCustomTheme()
 
     const customStyle = StyleSheet.create({

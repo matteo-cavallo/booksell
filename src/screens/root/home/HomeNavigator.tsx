@@ -1,7 +1,9 @@
 import { useNavigation} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useState } from 'react'
-import { HomeScreen } from './pages/HomePage';
+import { View } from 'react-native';
+import { Text } from 'react-native-elements';
+import { HomeScreen } from './HomeScreen';
 
 export const HomeNavigator = () => {
 
@@ -10,7 +12,7 @@ export const HomeNavigator = () => {
 
     return (
         <HomeStack.Navigator>
-           <HomeStack.Screen name="Home_Screen" component={HomeScreen} options={{title:"Home"}}/> 
+            <HomeStack.Screen component={HomeScreen} name="HomeScreen"/>
         </HomeStack.Navigator>
     )
 }
